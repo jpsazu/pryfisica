@@ -24,9 +24,9 @@ nav:
   - Inicio: index.md
   - Descripcion: descripcion.md
   - Problema: problema.md
+  - Ejemplo: python/ejemplo.md   
   - API:
-    - Python:
-      - Ejemplo: python/ejemplo.md    
+    - Python: 
       - Funcion main: python/api_main.md
       - Funcion update: python/api_update.md 
     - C++:
