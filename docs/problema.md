@@ -11,11 +11,22 @@ $$
 y la ecuación de calor
 $$
 \frac{\partial u}{\partial t}
+= c^2\left(
+\frac{\partial^2 u}{\partial x^2}
++ \frac{\partial^2 u}{\partial y^2}
+\right), \qquad t>0,
+$$
+
+sustituyendo $c^2=\alpha$ entonces:
+
+$$
+\frac{\partial u}{\partial t}
 = \alpha\left(
 \frac{\partial^2 u}{\partial x^2}
 + \frac{\partial^2 u}{\partial y^2}
 \right), \qquad t>0,
 $$
+
 con:
 
 * condición inicial
@@ -23,12 +34,7 @@ $$
 u(x,y,0) = f(x,y),
 $$
 
-* condiciones de frontera (por ejemplo, Dirichlet)
-$$
-u(x,y,t) = g(x,y,t)\quad \text{en la frontera}.
-$$
-
-donde $\alpha \gt 0$ es la difusividad térmica.
+* condiciones de frontera (por ejemplo, Neumann)
 
 #### 2. Discretización del dominio
 Dividimos el dominio espacial como:
@@ -123,15 +129,42 @@ $$
 
 #### 7. Condiciones de frontera
 
-Para frontera Dirichlet:
+Para frontera Neumann:
+
+Las condiciones de **Neumann** establecen el valor de la **derivada normal de la temperatura en la frontera**.  
+Para un sistema **aislado térmicamente**, esto significa que **no hay flujo de calor a través de las fronteras**, es decir:
+
 $$
-u_{0,j}^n = g(0,y_j,t^n),\qquad
-u_{N_x,j}^n = g(L_x,y_j,t^n),
+\frac{\partial u}{\partial n} = 0
 $$
+
+donde $n$ es la dirección normal a la frontera.
+
+En términos discretos (diferencias finitas):
+
 $$
-u_{i,0}^n = g(x_i,0,t^n),\qquad
-u_{i,N_y}^n = g(x_i,L_y,t^n).
+u_{\text{frontera}} = u_{\text{nodo vecino interior}}
 $$
+
+Esto refleja el valor interior hacia el borde, simulando que **el calor no puede escapar**.
+
+---
+
+ en el código
+
+En la función `recalcular_matriz` se implementa de la siguiente manera:
+
+```cpp
+// Condiciones de frontera (bordes reflejan el valor interior)
+for (int j = 0; j < Ny; ++j) {
+    prox[0 * Ny + j] = prox[1 * Ny + j];         // borde izquierdo
+    prox[(Nx - 1) * Ny + j] = prox[(Nx - 2) * Ny + j];   // borde derecho
+}
+for (int i = 0; i < Nx; ++i) {
+    prox[i * Ny + 0] = prox[i * Ny + 1];         // borde inferior
+    prox[i * Ny + (Ny - 1)] = prox[i * Ny + (Ny - 2)];   // borde superior
+}
+```
 
 #### 8. Condición de estabilidad
 
@@ -175,47 +208,7 @@ $$
         \lambda_y\left(u_{i,j+1}^n - 2u_{i,j}^n + u_{i,j-1}^n\right).
       $$
 		
-#### 10. Esquema implícito (idea general)
 
-El esquema explícito requiere $\Delta t$ muy pequeño. Los esquemas implícitos permiten usar pasos más grandes resolviendo sistemas lineales.
-
-##### 10.1 Backward Euler
-
-$$
-\frac{u_{i,j}^{n+1} - u_{i,j}^n}{\Delta t}
-=
-\alpha\left(
-\frac{u_{i+1,j}^{n+1} - 2u_{i,j}^{n+1} + u_{i-1,j}^{n+1}}{\Delta x^2}
-+
-\frac{u_{i,j+1}^{n+1} - 2u_{i,j}^{n+1} + u_{i,j-1}^{n+1}}{\Delta y^2}
-\right).
-$$
-
-En forma matricial:
-$$
-A\,\mathbf{u}^{n+1} = \mathbf{u}^n + \text{(fronteras)}.
-$$
-
-##### 10.2 Crank--Nicolson
-
-$$
-\frac{u_{i,j}^{n+1} - u_{i,j}^n}{\Delta t}
-=
-\alpha\,\frac{1}{2}
-\left[
-\Delta_h u_{i,j}^n
-+
-\Delta_h u_{i,j}^{n+1}
-\right].
-$$
-
-Esto produce:
-$$
-\left(I - \frac{\Delta t\,\alpha}{2}A\right)\mathbf{u}^{n+1}
-=
-\left(I + \frac{\Delta t\,\alpha}{2}A\right)\mathbf{u}^{n}
-+ \text{(fronteras)}.
-$$
 
 
 
