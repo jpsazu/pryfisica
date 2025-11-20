@@ -1,0 +1,44 @@
+site_name: Proyecto Fisica
+
+markdown_extensions:
+  # Habilita el soporte para MathJax y LaTeX
+  pymdownx.arithmatex:
+    generic: true
+    
+theme:
+    name: material
+    logo: media/ucr.png
+    features:
+      - navigation.expand
+      - content.mathjax     
+
+# Asegúrate de cargar la librería de MathJax desde un CDN
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - https://cdn.jsdelivr.net/
+
+nav:
+  - Inicio: index.md
+  - Descripcion: descripcion.md
+  - Problema: problema.md
+  - API:
+    - Python:
+      - Ejemplo: python/ejemplo.md    
+      - Funcion main: python/api_main.md
+      - Funcion update: python/api_update.md 
+    - C++:
+      - Serial:
+        - main: cpp/main.md
+        - Llenar centro: cpp/Llenar_centro.md
+        - Recalcular matriz: cpp/Recalcular_matriz.md
+        - Guardar datos: cpp/Guardar_datos.md
+      - Paralelo:
+        - main: cpp/main _paralelo.md
+        - Llenar centro: cpp/Llenar_centro _paralelo.md
+        - Recalcular matriz: cpp/Recalcular_matriz _paralelo.md
+        - Guardar datos: cpp/Guardar_datos _paralelo.md
+plugins:
+    - mkdocstrings

@@ -1,0 +1,35 @@
+# Mapa de calor (C++ API Paralelizado)
+
+## Función Guardar datos
+ * Función que guarda en un archivo los valores de una matriz 2D con sus coordenadas. Escribe cada elemento en el archivo "data.dat" en el formato: j  i  valor. Se agrega una línea en blanco entre filas para facilitar la visualización.
+ * Parámetros:
+     * Nx, Ny -> dimensiones de la matriz
+     * current -> matriz actual almacenada en un arreglo lineal (orden fila-major)
+ * Retorna:
+     * 0 si la operación fue exitosa
+     * 1 si no se pudo abrir el archivo para escritura
+```cpp
+#include <iostream>
+#include <cmath>
+#include <fstream>
+#include <algorithm> 
+#include <sys/time.h>
+
+int guardar_datos( int Nx, int Ny, double *current){
+  std::ofstream fout("data.dat");
+  if (!fout.is_open()) {
+    std::cerr << "Error: no se pudo abrir data.dat para escritura.\n";
+    return 1;
+  }
+
+  // Escribe cada valor de la matriz con sus coordenadas
+  for (int i = 0; i < Nx; ++i) {
+    for (int j = 0; j < Ny; ++j) {
+      fout << j << " " << i << " " << current[(i * Ny) + j] << "\n";  // separa por espacios
+    }
+    fout << "\n";// línea en blanco entre filas (útil para visualización)
+  }
+  fout.close();
+  return 0;
+}
+```

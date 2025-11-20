@@ -1,0 +1,37 @@
+site_name: Proyecto Fisica
+theme:
+    name: material
+    logo: media/ucr.png
+    features:
+      - navigation.expand
+      
+markdown_extensions:
+  - pymdownx.arithmatex:
+      inline_syntax: ['$', '$$']
+  - pymdownx.superfences
+  
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
+
+nav:
+  - Inicio: index.md
+  - Descripcion: descripcion.md
+  - Problema: problema.md
+  - API:
+    - Python:
+      - Ejemplo: python/ejemplo.md    
+      - Funcion main: python/api_main.md
+      - Funcion update: python/api_update.md 
+    - C++:
+      - Serial:
+        - main: cpp/main.md
+        - Llenar centro: cpp/Llenar_centro.md
+        - Recalcular matriz: cpp/Recalcular_matriz.md
+        - Guardar datos: cpp/Guardar_datos.md
+      - Paralelo:
+        - main: cpp/main _paralelo.md
+        - Llenar centro: cpp/Llenar_centro _paralelo.md
+        - Recalcular matriz: cpp/Recalcular_matriz _paralelo.md
+        - Guardar datos: cpp/Guardar_datos _paralelo.md
+plugins:
+    - mkdocstrings
