@@ -330,7 +330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../python/ejemplo/" class="md-nav__link">
+      <a href="../ejemplo/" class="md-nav__link">
         
   
   
@@ -1005,7 +1005,13 @@
 <h2 id="mecanismo">Mecanismo</h2>
 <p>El mecanismo implementado consiste en simular como el calor se difunde radialmente a partir de una fuente de calor colocada en el centro hacia la periferia de un área rectangular. </p>
 <h2 id="formula-de-difusion">Formula de difusión</h2>
-<p>xxx</p>
+<div class="arithmatex">\[
+\frac{\partial u}{\partial t}
+= \alpha\left(
+\frac{\partial^2 u}{\partial x^2}
++ \frac{\partial^2 u}{\partial y^2}
+\right), \qquad t&gt;0,
+\]</div>
 <h2 id="simulacion">Simulación</h2>
 <p>Se simula cómo la difusión se da a lo largo del tiempo, recalculando iterativamente la intensidad del calor en cada punto del área rectangular (matriz) y generando la imágen (frame) correspondiente a cada iteración. Para hacer el recálculo se usa la fórmula de difusión indicada en el apartado anterior</p>
 <h2 id="implementacion">Implementación</h2>
