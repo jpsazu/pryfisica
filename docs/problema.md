@@ -1,24 +1,20 @@
-# API Reference (Matrix)
+# Problema
 
-### Resolución numérica de la ecuación de calor en 2D en un rectángulo}
+### **Resolución numérica de la ecuación de calor en 2D**
 
 #### 1. Planteamiento del problema
 
-Sea el rectángulo
-$$
-0 < x < L_x, \qquad 0 < y < L_y,
-$$
-y la ecuación de calor
+Sea $u = u(x, y, t)$ una variable escalar que define la temperatura de una región de dos dimensiones en el plano Cartesiano $(x, y)$ como función del tiempo. La ecuación de calor correspondiente está dada por:
 $$
 \frac{\partial u}{\partial t}
 = c^2\left(
 \frac{\partial^2 u}{\partial x^2}
 + \frac{\partial^2 u}{\partial y^2}
-\right), \qquad t>0,
+\right)
 $$
+Sea el rectángulo $0 < x < L_x, \qquad 0 < y < L_y$
 
-sustituyendo $c^2=\alpha$ entonces:
-
+y la ecuación de calor anterior (con $c^2=\alpha$)
 $$
 \frac{\partial u}{\partial t}
 = \alpha\left(
@@ -29,12 +25,9 @@ $$
 
 con:
 
-* condición inicial
-$$
-u(x,y,0) = f(x,y),
-$$
+* condición inicial $u(x,y,0) = f(x,y)$
 
-* condiciones de frontera (por ejemplo, Neumann)
+* y condiciones de frontera (por ejemplo, Neumann)
 
 #### 2. Discretización del dominio
 Dividimos el dominio espacial como:
@@ -131,8 +124,8 @@ $$
 
 Para frontera Neumann:
 
-Las condiciones de **Neumann** establecen el valor de la **derivada normal de la temperatura en la frontera**.  
-Para un sistema **aislado térmicamente**, esto significa que **no hay flujo de calor a través de las fronteras**, es decir:
+Las condiciones de **Neumann** establecen el valor de la derivada normal de la temperatura en la frontera.  
+Para un sistema **aislado térmicamente**, esto significa que no hay flujo de calor a través de las fronteras, es decir:
 
 $$
 \frac{\partial u}{\partial n} = 0
@@ -146,13 +139,12 @@ $$
 u_{\text{frontera}} = u_{\text{nodo vecino interior}}
 $$
 
-Esto refleja el valor interior hacia el borde, simulando que **el calor no puede escapar**.
+Esto refleja el valor interior hacia el borde, simulando que el calor no puede escapar.
 
 ---
 
- en el código
 
-En la función `recalcular_matriz` se implementa de la siguiente manera:
+En la **programacion** la condicion de frontera se implementa de la siguiente manera:
 
 ```cpp
 // Condiciones de frontera (bordes reflejan el valor interior)

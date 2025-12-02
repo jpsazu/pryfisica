@@ -22,23 +22,21 @@ extra_css:
 
 nav:
   - Inicio: index.md
-  - Descripcion: descripcion.md
-  - Problema: problema.md
+  - Problema y metodologia: problema.md
+  - Recursos de implementacion: recursos.md
   - Ejemplo: ejemplo.md   
-  - API:
-    - Python: 
-      - Funcion main: python/api_main.md
-      - Funcion update: python/api_update.md 
-    - C++:
-      - Serial:
-        - main: cpp/main.md
-        - Llenar centro: cpp/Llenar_centro.md
-        - Recalcular matriz: cpp/Recalcular_matriz.md
-        - Guardar datos: cpp/Guardar_datos.md
-      - Paralelo:
-        - main: cpp/main _paralelo.md
-        - Llenar centro: cpp/Llenar_centro _paralelo.md
-        - Recalcular matriz: cpp/Recalcular_matriz _paralelo.md
-        - Guardar datos: cpp/Guardar_datos _paralelo.md
+  - API Python: 
+    - Funcion main: python/api_main.md
+    - Funcion update: python/api_update.md 
+  - API C++ Serial:
+    - main: cpp/main.md
+    - Llenar centro: cpp/Llenar_centro.md
+    - Recalcular matriz: cpp/Recalcular_matriz.md
+    - Guardar datos: cpp/Guardar_datos.md
+  - API C++ Paralelo:
+    - main: cpp/main _paralelo.md
+    - Llenar centro: cpp/Llenar_centro _paralelo.md
+    - Recalcular matriz: cpp/Recalcular_matriz _paralelo.md
+    - Guardar datos: cpp/Guardar_datos _paralelo.md
 plugins:
     - mkdocstrings
