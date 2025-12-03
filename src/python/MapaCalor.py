@@ -64,7 +64,7 @@ def update(frame,u,Nx,Ny,cento_medios,cx,cy,dx,dy,alpha,dt,img,ax,fig,Nt):
            u(matriz): Matriz anterior
            Nx(int): Cantidad de columnas
            Ny(int): Cantidad de filas
-           cento_medios(int): mitad del numero de celdas que forman el ancho (oalto) de cuadrado central (fuente)
+           cento_medios(int): mitad del numero de celdas del cuadrado central (fuente)
            cx(int): cordenada del centro en x
            cy(int): cordenada del centro en y
            dx(float): Espaciamiento entre nodos en x
@@ -75,6 +75,9 @@ def update(frame,u,Nx,Ny,cento_medios,cx,cy,dx,dy,alpha,dt,img,ax,fig,Nt):
            ax(matplotlib.axes._axes.Axes): El área dentro de la figura donde se dibujan las gráficas
            fig(matplotlib.figure.Figure):la figura completa
            Nt(int):Número total de pasos de tiempo de la simulación
+           
+     Returns:
+           (image):mapa de calor generado a partir de u
     """    
 
     # Establece el centro como fuente de calor
