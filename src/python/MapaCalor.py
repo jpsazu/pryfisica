@@ -77,7 +77,7 @@ def update(frame,u,Nx,Ny,cento_medios,cx,cy,dx,dy,alpha,dt,img,ax,fig,Nt):
            Nt(int):Número total de pasos de tiempo de la simulación
            
      Returns:
-           (image):mapa de calor generado a partir de u
+         (image):mapa de calor generado a partir de u
     """    
 
     # Establece el centro como fuente de calor
