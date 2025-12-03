@@ -60,7 +60,21 @@ def update(frame,u,Nx,Ny,cento_medios,cx,cy,dx,dy,alpha,dt,img,ax,fig,Nt):
       * Aplica apropiadamente el cálculo para el área interna y para los bordes
       
       Args:
+           frame(int): Numero de Fotograma
+           u(matriz): Matriz anterior
            Nx(int): Cantidad de columnas
+           Ny(int): Cantidad de filas
+           cento_medios(int): mitad del numero de celdas que forman el ancho (oalto) de cuadrado central (fuente)
+           cx(int): cordenada del centro en x
+           cy(int): cordenada del centro en y
+           dx(float): Espaciamiento entre nodos en x
+           dy(float): Espaciamiento entre nodos en y
+           alpha(float): coeficiente de difusividad térmica (m^2/s)
+           dt(float): Paso de tiempo
+           img(matplotlib.image.AxesImage): imagen que se va a actualizar
+           ax(matplotlib.axes._axes.Axes): El área dentro de la figura donde se dibujan las gráficas
+           fig(matplotlib.figure.Figure):la figura completa
+           Nt(int):Número total de pasos de tiempo de la simulación
     """    
 
     # Establece el centro como fuente de calor
