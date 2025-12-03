@@ -363,6 +363,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="update">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.python.MapaCalor.update--funcion-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      Función update
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -692,6 +707,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="update">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.python.MapaCalor.update--funcion-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      Función update
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -720,28 +750,269 @@
 <a id="src.python.MapaCalor.update"></a>
     <div class="doc doc-contents first">
 
-        <p>## Función update
- * Actualiza la matriz de temperatura <strong>u</strong> en cada paso de tiempo.
- * Pone los nuevos valores en una matriz auxiliar (<strong>u_new</strong>) para no sobre-escribir los actuales 
- * Luego toma la auxiliar como actual y generea el frame (imagen) correspondiente del video
- * Para calcular los nuevos valores usa la ecuación de calor en 2D
- * Aplica apropiadamente el cálculo para el área interna y para los bordes</p>
-<p>Args:
-      frame(int): Numero de Fotograma
-      u(matriz): Matriz anterior
-      Nx(int): Cantidad de columnas
-      Ny(int): Cantidad de filas
-      cento_medios(int): mitad del numero de celdas del cuadrado central (fuente)
-      cx(int): cordenada del centro en x
-      cy(int): cordenada del centro en y
-      dx(float): Espaciamiento entre nodos en x
-      dy(float): Espaciamiento entre nodos en y
-      alpha(float): coeficiente de difusividad térmica (m^2/s)
-      dt(float): Paso de tiempo
-      img(matplotlib.image.AxesImage): imagen que se va a actualizar
-      ax(matplotlib.axes._axes.Axes): El área dentro de la figura donde se dibujan las gráficas
-      fig(matplotlib.figure.Figure):la figura completa
-      Nt(int):Número total de pasos de tiempo de la simulación</p>
+        <h3 id="src.python.MapaCalor.update--funcion-update">Función update</h3>
+<ul>
+<li>Actualiza la matriz de temperatura <strong>u</strong> en cada paso de tiempo.</li>
+<li>Pone los nuevos valores en una matriz auxiliar (<strong>u_new</strong>) para no sobre-escribir los actuales </li>
+<li>Luego toma la auxiliar como actual y generea el frame (imagen) correspondiente del video</li>
+<li>Para calcular los nuevos valores usa la ecuación de calor en 2D</li>
+<li>Aplica apropiadamente el cálculo para el área interna y para los bordes</li>
+</ul>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>frame</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Numero de Fotograma</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>u</code>
+            </td>
+            <td>
+                  <code><span title="matriz">matriz</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Matriz anterior</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>Nx</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Cantidad de columnas</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>Ny</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Cantidad de filas</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>cento_medios</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>mitad del numero de celdas del cuadrado central (fuente)</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>cx</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>cordenada del centro en x</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>cy</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>cordenada del centro en y</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>dx</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Espaciamiento entre nodos en x</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>dy</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Espaciamiento entre nodos en y</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>alpha</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>coeficiente de difusividad térmica (m^2/s)</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>dt</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Paso de tiempo</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>img</code>
+            </td>
+            <td>
+                  <code><span title="matplotlib.image.AxesImage">AxesImage</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>imagen que se va a actualizar</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>ax</code>
+            </td>
+            <td>
+                  <code><span title="matplotlib.axes._axes.Axes">Axes</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>El área dentro de la figura donde se dibujan las gráficas</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>fig</code>
+            </td>
+            <td>
+                  <code><span title="matplotlib.figure.Figure">Figure</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>la figura completa</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>Nt</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Número total de pasos de tiempo de la simulación</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
     <p><span class="doc-section-title">Returns:</span></p>
@@ -858,7 +1129,7 @@
 <span class="sd">           fig(matplotlib.figure.Figure):la figura completa</span>
 <span class="sd">           Nt(int):Número total de pasos de tiempo de la simulación</span>
 
-<span class="sd">     Returns:</span>
+<span class="sd">      Returns:</span>
 <span class="sd">         (image):mapa de calor generado a partir de u</span>
 <span class="sd">    &quot;&quot;&quot;</span>    
 
