@@ -76,7 +76,7 @@ def update(frame,u,Nx,Ny,cento_medios,cx,cy,dx,dy,alpha,dt,img,ax,fig,Nt):
            fig(matplotlib.figure.Figure):la figura completa
            Nt(int):Número total de pasos de tiempo de la simulación
            
-     Returns:
+      Returns:
          (image):mapa de calor generado a partir de u
     """    
 
