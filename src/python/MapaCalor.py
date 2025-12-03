@@ -58,6 +58,9 @@ def update(frame,u,Nx,Ny,cento_medios,cx,cy,dx,dy,alpha,dt,img,ax,fig,Nt):
       * Luego toma la auxiliar como actual y generea el frame (imagen) correspondiente del video
       * Para calcular los nuevos valores usa la ecuación de calor en 2D
       * Aplica apropiadamente el cálculo para el área interna y para los bordes
+      
+      Args:
+           Nx(int): Cantidad de columnas
     """    
 
     # Establece el centro como fuente de calor
