@@ -1,16 +1,16 @@
 # Proyecto Físca Computacional 
 **ECUACIÓN DE CALOR EN DOS DIMENSIONES**
 
-##Características
+## Características
 - Resolucion numérica la ecuación de calor en dos dimensiones.
 - Ilustra la simulación del proceso de difusión de calor 
 - Incluye una implemetación en lenguaje Python
 - Incluye dos implemetacines en lenguaje C++: una secuencial y otra paralela
 
-##Profesor
+## Profesor
 - Marlon Brenes
 
-##Alumnos
+## Alumnos
 - José Pablo Sánchez
 - Pavel Chaves
 - Andres Molina
