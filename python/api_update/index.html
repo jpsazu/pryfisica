@@ -760,6 +760,37 @@
 </ul>
 
 
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>Nx</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Cantidad de columnas</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
             <details class="quote">
               <summary>Source code in <code>src/python/MapaCalor.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">53</span>
@@ -805,7 +836,10 @@
 <span class="normal">93</span>
 <span class="normal">94</span>
 <span class="normal">95</span>
-<span class="normal">96</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">Nx</span><span class="p">,</span><span class="n">Ny</span><span class="p">,</span><span class="n">cento_medios</span><span class="p">,</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">dy</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">img</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">fig</span><span class="p">,</span><span class="n">Nt</span><span class="p">):</span>
+<span class="normal">96</span>
+<span class="normal">97</span>
+<span class="normal">98</span>
+<span class="normal">99</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">Nx</span><span class="p">,</span><span class="n">Ny</span><span class="p">,</span><span class="n">cento_medios</span><span class="p">,</span><span class="n">cx</span><span class="p">,</span><span class="n">cy</span><span class="p">,</span><span class="n">dx</span><span class="p">,</span><span class="n">dy</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">img</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">fig</span><span class="p">,</span><span class="n">Nt</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">      ## Función update</span>
 <span class="sd">      * Actualiza la matriz de temperatura **u** en cada paso de tiempo.</span>
@@ -813,6 +847,9 @@
 <span class="sd">      * Luego toma la auxiliar como actual y generea el frame (imagen) correspondiente del video</span>
 <span class="sd">      * Para calcular los nuevos valores usa la ecuación de calor en 2D</span>
 <span class="sd">      * Aplica apropiadamente el cálculo para el área interna y para los bordes</span>
+
+<span class="sd">      Args:</span>
+<span class="sd">           Nx(int): Cantidad de columnas</span>
 <span class="sd">    &quot;&quot;&quot;</span>    
 
     <span class="c1"># Establece el centro como fuente de calor</span>
